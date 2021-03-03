@@ -21,16 +21,10 @@ function setup() {
   wall2 = createSprite(680, 645, 190, 20);
   wall3 = createSprite(590, 600, 20, 110);
   
-	engine = Engine.create();
-	world = engine.world;
+  engine = Engine.create();
+  world = engine.world;
 
-  var option = {
-    isStatic: false,
-    restitution: 3.0,
-    friction: 0.5,
-    dencity: 1.2,
-
-  }
+  
 
 
 	//Create the Bodies Here.
@@ -42,15 +36,13 @@ function setup() {
 
 
 function draw() {
-  rectMode(CENTER);
   background(0);
 
   ellipse(130, 645, 55, 55);
-  
+ 
   wall1.shapeColor = ("white");
   wall2.shapeColor = ("white");
   wall3.shapeColor = ("white");
-  
   
 
   drawSprites();
