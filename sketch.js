@@ -1,52 +1,42 @@
-var wall1;
-var wall2;
-var wall3;
-
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+const Render = Matter.Render;
+var dustbinObj, paperObject,groundObject
+var world;
 
-function preload()
-{
-
-}
 
 function setup() {
 	createCanvas(800, 700);
-
+  rectMode(CENTER);
   
-  
-  wall1 = createSprite(780, 600, 20, 110);
-  wall2 = createSprite(680, 645, 190, 20);
-  wall3 = createSprite(590, 600, 20, 110);
   
   engine = Engine.create();
   world = engine.world;
+  dustbinObj=new dustbin(1200,650);
+  paperObject=new paper(200,450,40);
+  groundObject=new ground(width/2,670,20);
+	
+
 
   
+Engine.run(engine);
 
 
-	//Create the Bodies Here.
-
-
-	Engine.run(engine);
-  
 }
 
 
 function draw() {
+  rectMode(CENTER);
   background(0);
 
+  dustbinObj.display();
+  paperObject.display();
+  groundObject.display();
   ellipse(130, 645, 55, 55);
- 
-  wall1.shapeColor = ("white");
-  wall2.shapeColor = ("white");
-  wall3.shapeColor = ("white");
   
-
-  drawSprites();
- 
+ drawSprites();
 }
 
 function Pressed(){
